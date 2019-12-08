@@ -3,12 +3,12 @@ $('#clGetBtn').click(function () {
     window['clFrameBody'].postMessage(1111, '*');
 });
 function receiveMessage(event) {
-    console.log(event.data, 'parent')//取得子页面传回来的值
+    console.log(event.data, 'parent');
 }
 window.addEventListener('message', receiveMessage, false);
 
 // child
-window.addEventListener('message', function(e){
+window.addEventListener('message', function(e) {
     if (e.origin === 'http://localhost:5000' && e.value === '1111') {
         returnSelectUser();
     }
